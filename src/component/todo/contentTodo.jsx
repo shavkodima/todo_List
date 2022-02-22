@@ -33,8 +33,6 @@ const ContentTodo = () => {
         localStorage.setItem('todo', JSON.stringify(data))
     }, [data])
 
-
-
     const newTask = (value) => {
         setValueTask(value)
     }

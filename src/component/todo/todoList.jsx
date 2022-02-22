@@ -27,7 +27,6 @@ const TodoList = ({ todoTask, statusTask, deleteTask }) => {
             setFilter(filtersConfig[0].action);
             setBtnFilter(filtersConfig)
         }
-
         setCountCompletedTask(arr.length)
     }, [todoTask])
 
@@ -38,13 +37,14 @@ const TodoList = ({ todoTask, statusTask, deleteTask }) => {
     }
 
     const filterTask = (action) => {
+        console.log(action === btnFilter.find(elem=> elem.action === action).action);
         removeActivitiClass(action)
         setFilter(action)
     }
 
     return (
         <div className={classes.todo_list}>
-            <HeaderTodo count={countCompletedTask} btnFilter={btnFilter} filterTask={filterTask} lengthTask ={todoTask.length}/>
+            <HeaderTodo countCompleted={countCompletedTask} btnFilter={btnFilter} filterTask={filterTask} lengthTask ={todoTask.length}/>
             <ul>
                 {
                     filter === btnFilter[1].action && countCompletedTask === 0 ?
