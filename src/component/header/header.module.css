@@ -1,0 +1,18 @@
+
+header a{
+    color:#fff;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    background-color: #3f51b5;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo{
+    text-transform: uppercase;
+    color: #fff;
+}

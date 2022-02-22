@@ -1,0 +1,56 @@
+.form_todo{
+    display: flex;
+    align-items: center;
+    margin:0 auto;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+
+.form_todo input{
+    width:100%;
+    min-width: 200px;
+    height:30px;
+    border:0px;
+    border-bottom: 1px solid #dbdbdb;
+    outline: none;
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.form_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_item_left{
+    flex:1;
+    margin-right:10px;
+    position: relative;
+
+}
+
+.button{
+    width: 200px;
+    height: 35px;
+    background-color: #3f51b5;
+    color: #fff;
+    border: 0px;
+    text-transform: uppercase;
+    transition: .5s;
+    cursor: pointer;
+}
+
+
+.button:hover{
+    background-color: #303f95;
+}
+
+
+.error{
+    color:red;
+    position: absolute;
+    bottom: -20px;
+    left:0px;
+}
