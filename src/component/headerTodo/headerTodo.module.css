@@ -1,0 +1,20 @@
+.todo_header{
+    border-bottom: 1px solid #e3e3e3;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo_header button{
+    border:0px;
+    padding: 10px;
+    cursor: pointer;
+    transition: cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.activ{
+    background-color: #3f51b5;
+    color: #fff;
+}

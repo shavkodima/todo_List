@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TodoListItem from "./todoListItem";
 import classes from "./todoList.module.css";
-
+import HeaderTodo from "../headerTodo/todoHeader";
 const filtersConfig = [
     {
         title: "Все",
@@ -18,7 +18,7 @@ const filtersConfig = [
 const TodoList = ({ todoTask, statusTask, deleteTask }) => {
 
     const [filter, setFilter] = useState(filtersConfig[0].action)
-    const [countComplitedTask, setCountComplitedTask] = useState(0)
+    const [countCompletedTask, setCountCompletedTask] = useState(0)
     const [btnFilter, setBtnFilter] = useState(filtersConfig)
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const TodoList = ({ todoTask, statusTask, deleteTask }) => {
             setBtnFilter(filtersConfig)
         }
 
-        setCountComplitedTask(arr.length)
+        setCountCompletedTask(arr.length)
     }, [todoTask])
 
 
@@ -44,19 +44,10 @@ const TodoList = ({ todoTask, statusTask, deleteTask }) => {
 
     return (
         <div className={classes.todo_list}>
-            <div className={classes.todo_header}>
-                <div className="header_item">
-                    <p>Всего записей: {todoTask.length} <span>Выполненых: {countComplitedTask}</span></p>
-                </div>
-                <div className="header_item">
-                    {
-                        btnFilter.map((elem) => { return <button className={elem.activ ? `${classes.activ}` : classes.btn} key={elem.action} onClick={(e) => filterTask(elem.action)}>{elem.title}</button> })
-                    }
-                </div>
-            </div>
+            <HeaderTodo count={countCompletedTask} btnFilter={btnFilter} filterTask={filterTask} lengthTask ={todoTask.length}/>
             <ul>
                 {
-                    filter === btnFilter[1].action && countComplitedTask === 0 ?
+                    filter === btnFilter[1].action && countCompletedTask === 0 ?
                         <p className={classes.todo_zero}>Нет выполненых задач</p> 
                         :
                         filter === btnFilter[1].action && todoTask.map(elem => {
