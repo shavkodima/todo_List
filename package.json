@@ -12,11 +12,7 @@
     "babel-loader": "^8.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
     "react-scripts": "^5.0.1",
-=======
-    "react-scripts": "^2.1.3",
->>>>>>> 17a42d272399550fb1a822cdc9f897b0bd762b6e
     "web-vitals": "^2.1.4"
   },
   "scripts": {
