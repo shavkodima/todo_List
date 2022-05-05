@@ -4,6 +4,12 @@
     justify-content: space-between;
     transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
     overflow: hidden;
+    border-bottom: 1px solid #dfdfdf;
+    border-radius: 3px;
+    padding: 20px;
+    align-items: center;
+    gap:10px;
+    position: relative;
 }
 
 .list_item:hover{
@@ -16,12 +22,34 @@
     cursor: pointer;
     font-size: 20px;
     color:#111;
+    width: 100%;
+    display: block;
 }
 
+.image_todo{
+    position: absolute;
+    left:3px;
+    top:3px;
+    transition: all 1s;
+}
+
+img{
+    transition: all 1s;
+    width:30px;
+    transform: translateX(0px);
+}
+
+.description_todo{
+    flex:1 1;
+    display: block;
+}
+
+.description_todo input{
+    display: none;
+}
 
 .completed{
     text-decoration: line-through;
-    opacity: 0.3;
 }
 
 .control{
@@ -29,30 +57,47 @@
     align-items: center;
     justify-content: center;
 }
-.control{
-    margin-right: 10px;
-}
-.control input{
-    display: none;
-}
+
+
 
 .delete{
     color: #fff;
     cursor: pointer;
     background-color: #ad0000;
     border: 0px;
-    border-radius: 3px;
     cursor: pointer;
-    padding: 5px 10px;
-    transform: translateX(52px);
-    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1)
-}
-
-.list_item:hover .delete{
-    transform: translateX(0px);
+    padding: 7px 12px;
+    transform: translateX(300px);
+    transition: .55s;
+    font-size: 1.2rem;
 }
 
 
 .delete:hover{
+    
     background-color: #8f0000;
 }
+
+.important{
+    background-color: #e35d2c;
+    color: #fff;
+    border:0px;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateX(300px);
+    transition: all .7s ;
+    margin-right:10px;
+}
+
+.important:hover{
+    background-color: orangered;
+}
+.list_item:hover .delete {
+    transition-delay:.1s;
+    transform: translateX(0px);
+}
+
+ .list_item:hover .important{
+    transform: translateX(0px);
+}
+

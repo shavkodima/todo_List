@@ -1,38 +1,40 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createTodo } from "../../utils";
 import classes from './form.module.css'
+import useContextTodo from "../../hooks/useContextTodo";
+import useInputTodo from "../../hooks/useInputTodo";
 
-const Forms = ({ handlerState, handlerSubmit }) => {
+const Forms = () => {
+    const {addTodo} = useContextTodo();
+    const {value, error, onChange} = useInputTodo();
 
-    const [taskValue, setTaskValue] = useState('')
-    const [checkValid, setCheckValid] = useState(true)
 
-    const handlerInput = (valueInput) => {
-            setTaskValue(valueInput)
-            handlerState(valueInput) 
-            setCheckValid(true)
+    const submit = (e) =>{
+        e.preventDefault();
+        if(error.status){
+            addTodo(value)
+        }
     }
 
-    const submit = ()=>{ 
-        if(taskValue !== ''){
-            handlerSubmit();
-            setTaskValue('')
-        }else{
-            setCheckValid(prev=> !prev)
-        }   
-    }
 
     return (
-        <form onSubmit={(e) => { e.preventDefault(); submit(); }} className={classes.form_todo}>
+        <>
+        <form onSubmit={submit} className={classes.form_todo}>
             <div className={`${classes.form_item} ${classes.form_item_left}`}>
-                <input type="text" value={taskValue} onChange={(e) => handlerInput(e.target.value)} placeholder='Введите задачу' />
-                <span className={classes.error} >{!checkValid?'Поле не может быть пустым':''}</span>
+                <input type="text" 
+                value={value} 
+                onChange={(e) => onChange(e.target.value)}
+                 placeholder='Введите новую задачу' />
+                <span className={classes.error} >{!error.status?error.message:''}</span>
             </div>
             <div className={classes.form_item}>
                 <button className={classes.button}>Добавить задачу</button>
             </div>
         </form>
+        </>      
     )
 }
 
 
-export default Forms;
+export default React.memo(Forms);

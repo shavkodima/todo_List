@@ -3,7 +3,9 @@
     align-items: center;
     margin:0 auto;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 22px 10px;
 }
 
 
